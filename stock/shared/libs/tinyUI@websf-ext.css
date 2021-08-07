@@ -1,0 +1,125 @@
+/* Colors */
+:root {
+	--acclr-black: #000;
+	--acclr-mildblack: #444;
+	--acclr-grey: #777;
+	--acclr-white: #fff;
+	--acclr-mildwhite: #bbb;
+	--acclr-ivory: #f2efde;
+	--acclr-lightblue: #1af;
+	--acclr-blue: #07e;
+	--acclr-darkblue: #049;
+	--icon-black: brightness(0%);
+	--icon-white: brightness(0%) invert(100%);
+}
+/* Document accents */
+body, body * {
+	--text-color: var(--acclr-black);
+	--etxt-color: var(--acclr-white);
+	--ebg-color: var(--acclr-black);
+	--debg-color: var(--acclr-mildblack);
+	--bg-color: var(--acclr-white);
+	--icon-theme: var(--icon-black);
+}
+body.uimode-mild, body.uimode-mild * {
+	--text-color: var(--acclr-black);
+	--etxt-color: var(--acclr-white);
+	--ebg-color: var(--acclr-mildblack);
+	--debg-color: var(--acclr-grey);
+}
+body.uimode-dark, body.uimode-dark * {
+	--text-color: var(--acclr-white);
+	--etxt-color: var(--acclr-black);
+	--ebg-color: var(--acclr-white);
+	--debg-color: var(--acclr-mildwhite);
+	--bg-color: var(--acclr-black);
+	--icon-theme: var(--icon-white);
+}
+body.uimode-dark.uimode-mild, body.uimode-dark.uimode-mild * {
+	--text-color: var(--acclr-mildwhite);
+	--ebg-color: var(--acclr-mildwhite);
+	--debg-color: var(--acclr-grey);
+	--bg-color: var(--acclr-mildblack);
+}
+body {
+	color: var(--text-color, #000);
+	background: var(--bg-color);
+}
+/* Global colour accents */
+body.uiaccent-blue, body.uiaccent-blue * {
+	--text-color: var(--acclr-darkblue);
+	--ebg-color: var(--acclr-lightblue);
+	--debg-color: var(--acclr-blue);
+}
+
+/* Global styles */
+a {
+	text-decoration: none;
+	color: var(--ebg-color);
+}
+
+/* Button types */
+*[class^="btntype-"], *[class*=" btntype-"] {
+	border: 0px solid;
+	color: var(--etxt-color);
+	padding: 0.4em;
+	transition: background 0.25s, color 0.25s;
+}
+.btntype-text {
+	background: var(--ebg-color);
+}
+.btntype-text:hover {
+	background: var(--etxt-color);
+	color: var(--ebg-color);
+	cursor: pointer;
+}
+/* Image buttons */
+.btntype-img {
+	display: grid;
+	place-items: center;
+}
+.btntype-img > img {
+	display: block;
+}
+.btntype-img > img[disabled] {
+	display: none;
+}
+*[class^="btntype-"][class^="iconsize-"], *[class*=" btntype-"][class^="iconsize-"], *[class^="btntype-"][class*=" iconsize-"], *[class*=" btntype-"][class*=" iconsize-"] {
+	padding: 0;
+}
+.btntype-rect {
+	border-radius: 0;
+}
+.btntype-softrect {
+	border-radius: 0.25em;
+};
+.btntype-round {
+	border-radius: 50%;
+}
+.btntype-capsule {
+	border-radius: 50vmin;
+}
+/* Button colors */
+.btnclr-accent {
+	background: var(--ebg-color);
+}
+/* Icon sizes */
+*[class^="iconsize-"], *[class*=" iconsize-"] {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+*[class^="icon-"], *[class*=" icon-"] {
+	filter: var(--icon-theme);
+}
+
+/* Force text color */
+.force-color-inherit {
+	color: inherit;
+}
+
+/* Image styling */
+img.bind-image-stretch {
+	width: 100%;
+	height: 100%;
+}

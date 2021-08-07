@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="200" charset="utf-8" />
-	<title class="bind-dyn">${level} ${statusCode}: ${statusMessage}</title>	
+	<title class="bind-dyn">${level} ${statusCode}: ${statusMessage}</title>
+	<link rel="stylesheet" href="/errors/libs/tinyUI@websf-ext.css" />
 	<link rel="stylesheet" href="/errors/global.css" />
 	<link rel="shortcut icon" href="/errors/icons/icon32.png" />
+	<script src="/errors/libs/alter@websf-main.js"></script>
+	<script src="/errors/libs/flyover@websf-main.js"></script>
+	<script src="/errors/libs/tinyUi@websf-ext.js"></script>
 	<script src="/errors/global.js"></script>
 	<meta content="true" name="HandheldFriendly" />
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-	<meta content='{{placeholder "http.error.status_code"}}' class="bind-var" name="statuscode" />
+	<meta content='{{placeholder "http.error.status_code"}}' class="bind-var" name="status-code" />
 	<meta content='{{.Req.Header.Get "X-Forwarded-For"}}' class="bind-var" name="forwarded-for" />
 	<meta content='{{.Req.Header.Get "X-Real-IP"}}' class="bind-var" name="real-ip" />
 	<meta content='{{.Req.Header.Get "X-CDN-Origin"}}' class="bind-var" name="cdn-origin" />
 </head>
-<body>
-	<image class="custom-background bind-image-fill" src=""></img>
+<body class="uimode-mild">
+	<image class="custom-background bind-image-fill" src="" />
 	<div class="component-middle-box"><div class="component-middle-box-master"><div>
 		<div>
 			<div class="custom-status-code bind-dyn">${statusCode}</div>
@@ -27,10 +31,30 @@
 			<b>CDN</b>: <code class="bind-dyn">${cdnStatus}</code><br/>
 			</div>
 		</div>
+		<div>
+			<div class="bind-dyn" style="margin: 0 auto; width: max-content;">${statusDesc}</div>
+			<div class="custom-ifsure">If you are sure that this is an error, please contact server administrators.</div>
+		</div>
+		<div>
+			<ul class="listcol-btnclr-accent listcol-btntype-softrect listcol-btntype-text listcol-listcol-force-color-inherit">
+				<li><a href="../">Go Up</a></li>
+				<li><a href="/">Home</a></li>
+				<li><a href="mailto:user@example.com">Contact</a></li>
+			</ul>
+		</div>
 	</div></div>
 	<div class="section-bottom">
-		<div class="custom-ifsure">If you are sure that this is an error, please contact server administrators.</div>
 		<div class="custom-desc">This server is proudly running <a href="https://caddyserver.com/">Caddy</a> with <a href="https://www.ltgc.cc/projects/leaflet/">Leaflet</a> error template.</div>
 	</div>
+	</div>
+	<div class="imgbtn-topright">
+		<div class="btntype-img iconsize-32">
+			<img class="icon-light iconsize-24" src="/errors/icons/light.svg"/>
+			<img class="icon-dark iconsize-24" disabled src="/errors/icons/dark.svg"/>
+		</div>
+		<div class="btntype-img iconsize-32">
+			<img class="icon-normal iconsize-24" src="/errors/icons/normal.svg"/>
+			<img class="icon-mild iconsize-24" disabled src="/errors/icons/mild.svg"/>
+		</div>
 	</div>
 </body>

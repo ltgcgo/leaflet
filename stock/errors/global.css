@@ -1,3 +1,24 @@
+@font-face {
+	font-family: "Manrope Web VF";
+	src: url("/errors/fonts/manrope_vf.woff2");
+}
+
+body {
+	--dominant-color: #000;
+	--subdominant-color: #444;
+	--descriptive-color: #666;
+	--bg-style: rgba(0, 0, 0, 0.6);
+}
+body.status-blocked {
+	--status-color: hsl(0, 70%, 35%);
+}
+body.status-client {
+	--status-color: hsl(120, 60%, 25%);
+}
+body.status-server {
+	--status-color: hsl(240, 70%, 35%);
+}
+
 body, .component-middle-box {
 	position: absolute;
 	width: 100%;
@@ -7,17 +28,21 @@ body, .component-middle-box {
 	cursor: default;
 	margin: 0;
 	padding: 0;
+	font-family: "Manrope", "Manrope Web VF", sans-serif;
 	font-size: 16px;
-	transition: background 0.25s;
+	font-weight: 500;
 }
-a {
-	text-decoration: none;
-	color: hsl(240, 100%, 75%);
+body {	
+	/*background: #000;*/
 }
 ul, li {
 	display: inline-block;
 	padding: 0;
 	margin: 0;
+	text-align: center;
+}
+ul {
+	width: 100%;
 }
 li {
 	display: inline-block;
@@ -27,19 +52,7 @@ li {
 }
 code {
 	font-family: mono;
-}
-
-body.status-blocked {
-	background: hsl(240, 70%, 45%);
-}
-body.status-connection {
-	background: hsl(240, 70%, 45%);
-}
-body.status-client {
-	background: hsl(240, 70%, 45%);
-}
-body.status-server {
-	background: hsl(240, 70%, 45%);
+	color: var(--debg-color, #000);
 }
 
 .component-middle-box {
@@ -58,19 +71,26 @@ body.status-server {
 	max-width: 630px;
 }
 .component-middle-box > div > div > div {
-	color: #fff;
-	background: rgba(0, 0, 0, 0.6);
+	/*color: #fff;
+	outline: 2px rgba(0, 0, 0, 0.3) solid;
+	background: rgba(0, 0, 0, 0.6);*/
 	padding: 12px;
 	border: 0px solid;
-	outline: 2px rgba(0, 0, 0, 0.3) solid;
-	border-radius: 8px;
-	margin: 1em 0;
+	border-radius: 0px;
 }
 
 .section-bottom {
-	padding: 4px;
-	color: #fff;
-	background: rgba(0, 0, 0, 0.6);
+	padding: 8px;
+	/*color: #fff;
+	background: rgba(0, 0, 0, 0.6);*/
+}
+.imgbtn-topright {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+}
+.imgbtn-topright > div {
+	display: inline-grid;
 }
 
 div.custom-detailed-info {
@@ -85,7 +105,12 @@ div.custom-desc, div.custom-ifsure, div[class^="custom-status-"] {
 }
 div.custom-status-code {
 	font-size: 4em;
+	font-weight: 100;
+	color: var(--text-color, #000);
+	transition: color 0.25s;
 }
 div.custom-status-message {
 	font-size: 1.5em;
+	font-weight: 400;
+	color: var(--debg-color, #000);
 }
