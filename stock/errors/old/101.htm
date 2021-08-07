@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+	{{include "errors/globalHead.htm"}}
+	<title>Notice {{placeholder "http.error.status_code"}}: Switching Protocol</title>
+</head>
+<body>
+	<div class="box-middle">
+		<center class="big-text" style="color: blue">UPGRADING</center>
+		<hr/>
+		You requested for "<b>{{placeholder "http.request.uri.path"}}</b>" on <b>{{.Host}}</b> from <b>{{.RemoteIP}}</b>, and this request is upgrading to a newer protocol.<br/>
+		If you encountered an error, please contact server administrators.<br/>
+		{{include "errors/globalFoot.htm"}}
+	</div>
+</body>

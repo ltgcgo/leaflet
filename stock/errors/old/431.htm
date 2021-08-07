@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+	{{include "errors/globalHead.htm"}}
+	<title>Error {{placeholder "http.error.status_code"}}: Request Header Fields Too Large</title>
+</head>
+<body>
+	<div class="box-middle">
+		<center class="big-text">ANNOYING</center>
+		<hr/>
+		You requested for a connection initiation at "<b>{{placeholder "http.request.uri.path"}}</b>" on <b>{{.Host}}</b> from <b>{{.RemoteIP}}</b>.<br/>
+		The server can't process it because the header fields are way too large.<br/>
+		Please check your client-side implementation.<br/>
+		{{include "errors/globalFoot.htm"}}
+	</div>
+</body>

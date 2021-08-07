@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+	{{include "errors/globalHead.htm"}}
+	<title>Error {{placeholder "http.error.status_code"}}: Internal Error</title>
+</head>
+<body>
+	<div class="box-middle">
+		<center class="big-text">{{placeholder "http.error.status_code"}}</center>
+		<hr/>
+		You requested for "<b>{{placeholder "http.request.uri.path"}}</b>" on <b>{{.Host}}</b> from <b>{{.RemoteIP}}</b>, but sadly, the backend had an error occured, thus unable to deliver a response.<br/>
+		Please retry after some moments. If this keeps happening, please contact server administrators.<br/>
+		{{include "errors/globalFoot.htm"}}
+	</div>
+</body>

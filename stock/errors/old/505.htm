@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+	{{include "errors/globalHead.htm"}}
+	<title>Error {{placeholder "http.error.status_code"}}: Unsupported Version</title>
+</head>
+<body>
+	<div class="box-middle">
+		<center class="big-text">{{placeholder "http.error.status_code"}}</center>
+		<hr/>
+		You requested for "<b>{{placeholder "http.request.uri.path"}}</b>" on <b>{{.Host}}</b> from <b>{{.RemoteIP}}</b>, but this server only supports HTTP/1.1 and above.<br/>
+		{{include "errors/globalFoot.htm"}}
+	</div>
+</body>

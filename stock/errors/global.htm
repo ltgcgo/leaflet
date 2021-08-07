@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="200" charset="utf-8" />
+	<title class="bind-dyn">${level} ${statusCode}: ${statusMessage}</title>	
+	<link rel="stylesheet" href="/errors/global.css" />
+	<link rel="shortcut icon" href="/errors/icons/icon32.png" />
+	<script src="/errors/global.js"></script>
+	<meta content="true" name="HandheldFriendly" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta content='{{placeholder "http.error.status_code"}}' id="var-statuscode" />
+	<meta content='{{.Req.Header.Get "X-Forwarded-For"}}' id="var-forwarded-for" />
+	<meta content='{{.Req.Header.Get "X-Real-IP"}}' id="var-real-ip" />
+	<meta content='{{.Req.Header.Get "X-CDN-Origin"}}' id="var-cdn-origin" />
+</head>
+<body>
+	<image class="custom-background bind-image-fill" src=""></img>
+	<div class="component-middle-box">
+		<div class="custom-status-code bind-dyn">${statusCode}</div>
+		<div class="custom-status-message bind-dyn">${statusMessage}</div>
+		<div class="custom-detailed-info">
+		<b>Path</b>: <code>{{placeholder "http.request.uri.path"}}</code><br/>
+		<b>Front IP</b>: <code>{{.RemoteIP}}</code><br/>
+		<b>CDN</b>: <code class="bind-dyn">${cdnStatus}</code></div>
+		<div class="bind-dyn">${ifSureError}</div>
+	</div>
+</body>

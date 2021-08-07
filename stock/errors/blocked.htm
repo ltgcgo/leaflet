@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+	{{include "errors/globalHead.htm"}}
+	<title>Blocked Client Access</title>
+</head>
+<body>
+	<div class="box-middle">
+		<center class="big-text">BLOCKED</center>
+		<hr/>
+		You requested on <b>{{.Host}}</b> from <b>{{.RemoteIP}}</b>, but you are blocked from accessing this server.<br/>
+		If you are sure that this is an error, please contact server administrators.<br/>
+		{{include "errors/globalFoot.htm"}}
+	</div>
+</body>

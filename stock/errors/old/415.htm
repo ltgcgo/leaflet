@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+	{{include "errors/globalHead.htm"}}
+	<title>Error {{placeholder "http.error.status_code"}}: Media Type Unsupported</title>
+</head>
+<body>
+	<div class="box-middle">
+		<center class="big-text">{{placeholder "http.error.status_code"}}</center>
+		<hr/>
+		You requested for "<b>{{placeholder "http.request.uri.path"}}</b>" on <b>{{.Host}}</b> from <b>{{.RemoteIP}}</b>, but your requested an unsupported media type.<br/>
+		<b>Encoding</b>: {{.Req.Header.Get "Accept-Encoding"}}<br/>
+		<b>Type</b>: {{.Req.Header.Get "Accept"}}<br/>
+		Please check your client side implementation. If you are sure that this is an error, please contact server administrators.<br/>
+		{{include "errors/globalFoot.htm"}}
+	</div>
+</body>
