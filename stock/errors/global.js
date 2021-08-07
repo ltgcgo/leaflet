@@ -13,7 +13,7 @@ $invoke(false, function () {
 	AppBinding.appTable = {};
 	HTMLElement.prototype.bindVar = function () {
 		if (!this.bindList) {
-			let otxt = this.innerText;
+			let otxt = this.innerHTML;
 			let bindList = new Set(), bindName = "";
 			let mode = 0;
 			Array.from(otxt).forEach((e) => {
@@ -61,7 +61,7 @@ $invoke(false, function () {
 			AppBinding.appTable[e].delete(this);
 		});
 		delete this.bindList;
-		this.innerText = this.bindText;
+		this.innerHTML = this.bindText;
 		delete this.bindText;
 	};
 	HTMLElement.prototype.bindUpdate = function () {
@@ -69,7 +69,7 @@ $invoke(false, function () {
 		this.bindList.forEach((e) => {
 			replaceTable[e] = AppBinding.get(e);
 		});
-		this.innerText = this.bindText.alter(replaceTable);
+		this.innerHTML = this.bindText.alter(replaceTable);
 	};
 	let binds = $a(".bind-dyn");
 	binds.forEach((e) => {
@@ -98,10 +98,17 @@ $invoke(false, function () {
 	AppBinding.set("statusCode", statusCode);
 	AppBinding.set("level", statusCode[0].withAny("45") ? "Error" : "Warn");
 	AppBinding.set("realHost", location.hostname);
+	self.switchStatusCode = function (code) {
+		AppBinding.set("statusCode", code);
+		AppBinding.set("statusMessage", (self.statusCode[code] || "Status unset").toUpperCase());
+		AppBinding.set("statusDesc", (self.statusMsg[code] || "Status unset"));
+	};
 	fetch("/errors/status.json").then((e) => {return e.json()}).then((json) => {
+		self.statusCode = json;
 		AppBinding.set("statusMessage", (json[statusCode] || "Status unset").toUpperCase());
 	});
 	fetch("/errors/statusDesc.json").then((e) => {return e.json()}).then((json) => {
+		self.statusMsg = json;
 		AppBinding.set("statusDesc", json[statusCode] || "Description unset");
 	});
 });

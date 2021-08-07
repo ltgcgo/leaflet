@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="200" charset="utf-8" />
-	<title class="bind-dyn">${level} ${statusCode}: ${statusMessage}</title>
+	<title class="bind-dyn">${level} {{placeholder "http.error.status_code"}}: ${statusMessage}</title>
 	<link rel="stylesheet" href="/errors/libs/tinyUI@websf-ext.css" />
 	<link rel="stylesheet" href="/errors/global.css" />
 	<link rel="shortcut icon" href="/errors/icons/icon32.png" />
@@ -29,10 +29,12 @@
 			<b>Host</b>: <code class="bind-dyn">{{.Host}} ${realHost}</code><br/>
 			<b>Front IP</b>: <code>{{.RemoteIP}}</code><br/>
 			<b>CDN</b>: <code class="bind-dyn">${cdnStatus}</code><br/>
+			<b>Encoding</b>: <code>{{.Req.Header.Get "Accept-Encoding"}}</code><br/>
+			<b>Type</b>: <code style="display: inline-block; width: 100%; max-width: 300px; vertical-align: middle;">{{.Req.Header.Get "Accept"}}</code><br/>
 			</div>
 		</div>
 		<div>
-			<div class="bind-dyn" style="margin: 0 auto; width: max-content;">${statusDesc}</div>
+			<div class="custom-descr bind-dyn" style="margin: 0 auto; width: max-content; max-width: 100%;">${statusDesc}</div>
 			<div class="custom-ifsure">If you are sure that this is an error, please contact server administrators.</div>
 		</div>
 		<div>

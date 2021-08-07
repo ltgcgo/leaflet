@@ -68,7 +68,7 @@ code {
 .component-middle-box > div > div {	
 	width: 75%;
 	min-width: 256px;
-	max-width: 630px;
+	max-width: 720px;
 }
 .component-middle-box > div > div > div {
 	/*color: #fff;
@@ -97,11 +97,19 @@ div.custom-detailed-info {
 	margin: 0 auto;
 	width: max-content;
 	max-width: 540px;
+	word-wrap: break-word;
+	word-break: break-word;
 }
 div.custom-desc, div.custom-ifsure, div[class^="custom-status-"] {
 	text-align: center;
 	margin: 0 auto;
 	max-width: 100%;
+}
+div.custom-descr {
+	text-align: justify;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    white-space: pre-line;
 }
 div.custom-status-code {
 	font-size: 4em;
