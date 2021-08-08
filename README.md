@@ -15,7 +15,22 @@ Finally, add this snippet to your existing Caddy configuration:
 ```
 (errHandler) {
 	handle_errors {
-		rewrite * /errors/{http.error.status_code}.htm
+		rewrite * /errors/global.htm
+		file_server
+		templates
+	}
+}
+```
+
+You can also serve blocked page to blocked clients:
+```
+(errHandler) {
+	@blockedClients {
+		protocol http
+		remote_ip 106.0.0.0/10 106.64.0.0/11
+	}
+	handle @blockedClients {
+		rewrite * /errors/global.htm
 		file_server
 		templates
 	}
