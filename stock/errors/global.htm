@@ -29,8 +29,7 @@
 			<b>Host</b>: <code class="bind-dyn">{{.Host}} ${realHost}</code><br/>
 			<b>Front IP</b>: <code>{{.RemoteIP}}</code><br/>
 			<b>CDN</b>: <code class="bind-dyn">${cdnStatus}</code><br/>
-			<b>Encoding</b>: <code>{{.Req.Header.Get "Accept-Encoding"}}</code><br/>
-			<b>Type</b>: <code style="display: inline-block; width: 100%; max-width: 300px; vertical-align: middle;">{{.Req.Header.Get "Accept"}}</code><br/>
+			<b>Encoding</b>: <code>{{.Req.Header.Get "Accept-Encoding"}}</code>
 			</div>
 		</div>
 		<div>
