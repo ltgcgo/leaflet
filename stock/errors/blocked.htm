@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="200" charset="utf-8" />
+	<title>Client connection blocked</title>
+	<link rel="stylesheet" href="/errors/libs/tinyUI@websf-ext.css" />
+	<link rel="stylesheet" href="/errors/global.css" />
+	<link rel="shortcut icon" href="/errors/icons/icon32.png" />
+	<script src="/errors/libs/alter@websf-main.js"></script>
+	<script src="/errors/libs/flyover@websf-main.js"></script>
+	<script src="/errors/libs/tinyUi@websf-ext.js"></script>
+	<script src="/errors/global.js"></script>
+	<meta content="true" name="HandheldFriendly" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta content='{{placeholder "http.error.status_code"}}' name="status-code" />
+</head>
+<body class="uimode-dark" style="background: #500;">
+	<image class="custom-background bind-image-fill" src="" />
+	<div class="component-middle-box"><div class="component-middle-box-master"><div>
+		<div>
+			<div class="custom-status-code bind-dyn">452</div>
+			<div class="custom-status-message bind-dyn">CLIENT BLOCKED</div>
+		</div>
+		<div>
+			<div class="custom-detailed-info">
+			<b>Request</b>: <code>{{.Req.Method}} {{placeholder "http.request.uri.path"}}</code><br/>
+			<b>Host</b>: <code>{{.Host}}</code><br/>
+			<b>Front IP</b>: <code>{{.RemoteIP}} {{.Req.Header.Get "X-Forwarded-For"}} {{.Req.Header.Get "X-Real-IP"}} {{.Req.Header.Get "X-CDN-Origin"}}</code><br/>
+			<b>Referer</b>: <code>{{.Req.Header.Get "Referer"}}</code><br/>
+			<b>Origin</b>: <code>{{.Req.Header.Get "Origin"}}</code>
+			</div>
+		</div>
+		<div>
+			<div style="margin: 0 auto; width: max-content; max-width: 100%;">Possibly due to unsafe user agents, stripped TLS connection or unsafe origin, you are blocked from accessing this server.</div>
+		</div>
+	</div></div>
+	<div class="section-bottom">
+		<div class="custom-desc">This server is proudly running <a href="https://caddyserver.com/">Caddy</a> with <a href="https://www.ltgc.cc/projects/leaflet/">Leaflet</a> error template.</div>
+	</div>
+	</div>
+	<div class="imgbtn-topright">
+		<div class="btntype-img iconsize-32">
+			<img class="icon-light iconsize-24" disabled src="/errors/icons/light.svg"/>
+			<img class="icon-dark iconsize-24" src="/errors/icons/dark.svg"/>
+		</div>
+		<div class="btntype-img iconsize-32">
+			<img class="icon-normal iconsize-24" src="/errors/icons/normal.svg"/>
+			<img class="icon-mild iconsize-24" disabled src="/errors/icons/mild.svg"/>
+		</div>
+	</div>
+</body>
