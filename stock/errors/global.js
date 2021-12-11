@@ -105,10 +105,22 @@ $invoke(false, function () {
 	};
 	fetch("/errors/status.json").then((e) => {return e.json()}).then((json) => {
 		self.statusCode = json;
-		AppBinding.set("statusMessage", (json[statusCode] || "Status unset").toUpperCase());
+		AppBinding.set("statusMessage", (AppBinding.metaVar.get("status-msg") || json[statusCode] || AppBinding.metaVar.get("status-text") || "Status unset").toUpperCase());
 	});
 	fetch("/errors/statusDesc.json").then((e) => {return e.json()}).then((json) => {
 		self.statusMsg = json;
 		AppBinding.set("statusDesc", json[statusCode] || "Description unset");
 	});
+	// Is it CDN?
+	let cdnString = "";
+	if (AppBinding.metaVar.get("cdn-origin").length > 0) {
+		cdnString += AppBinding.metaVar.get("cdn-origin") + " ";
+	};
+	if (AppBinding.metaVar.get("forwarded-proto").length > 0) {
+		cdnString += AppBinding.metaVar.get("forwarded-proto") + " ";
+	};
+	if (AppBinding.metaVar.get("forwarded-for").length > 0) {
+		cdnString += AppBinding.metaVar.get("forwarded-for") + " ";
+	};
+	AppBinding.set("cdnStatus", cdnString || "No CDN");
 });

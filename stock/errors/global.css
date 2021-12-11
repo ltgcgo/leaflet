@@ -10,13 +10,13 @@ body {
 	--bg-style: rgba(0, 0, 0, 0.6);
 }
 body.status-blocked {
-	--status-color: hsl(0, 70%, 35%);
+	--status-color: #300;
 }
 body.status-client {
-	--status-color: hsl(120, 60%, 25%);
+	--status-color: #030;
 }
 body.status-server {
-	--status-color: hsl(240, 70%, 35%);
+	--status-color: #003;
 }
 
 body, .component-middle-box {
@@ -33,7 +33,7 @@ body, .component-middle-box {
 	font-weight: 500;
 }
 body {	
-	/*background: #000;*/
+	background: var(--status-color, #000);
 }
 ul, li {
 	display: inline-block;
@@ -51,7 +51,7 @@ li {
 	list-style: none;
 }
 code {
-	font-family: mono;
+	font-family: mono, monospace;
 	color: var(--debg-color, #000);
 }
 

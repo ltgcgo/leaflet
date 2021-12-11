@@ -15,7 +15,6 @@
 	"426": "This connection must be upgraded to a different protocol.",
 	"429": "The server doesn't want to give you a reply because it thinks you're too noisy and annoying.<br/>Please wait for some time for the server to calm down, after which would be willing to serve you again. If you are sure that you cannot make amends between your relationships, server admins are always here to be your guidance counselor.",
 	"451": "You requested for this resource, but sadly, those secret police have threatened us to make this resource cease to exist on this server forever. Also, the state firefighters had already got the resource ablazed in a 451-degree-Fahrenheit oven.<br/>You know, Big Brothers are always watching you, and we can't make them disappear just yet: they're too strong. To them, you have committed a thought crime just now, that's technically treason, but we'll keep that little secret for you. No need to ever thank us.<br/>Remember, wherever you go, don't question the secret police and our almighty rulers, or you'll be in big trouble. They are always right, and you are the only one who can be wrong.",
-	"452": "You are banned from accessing this server.",
 	"500": "An error occured in the backend.",
 	"501": "Backend doesn't yet support handling this method.",
 	"502": "Backend cannot give a valid response.",
@@ -23,5 +22,7 @@
 	"504": "Backend cannot respond in time. This can happen due to networking issues, or the backend is overloaded.",
 	"505": "Request version outdated. This server only supports HTTP/1.1 and above.",
 	"514": "You are too stinky.",
+	"600": "You are banned from accessing this server.",
+	"601": "This request is banned.",
 	"114514": "Why can you even trigger this status code..."
 }

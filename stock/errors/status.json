@@ -16,7 +16,6 @@
 	"429": "Too many requests",
 	"431": "Request header field too large",
 	"451": "Gestapo warning",
-	"452": "Client banned",
 	"500": "Internal error",
 	"501": "Not implemented",
 	"502": "Bad gateway",
@@ -24,5 +23,7 @@
 	"504": "Gateway timeout",
 	"505": "Unsupported version",
 	"514": "Filthy Beast!",
+	"600": "Client banned",
+	"601": "Request banned",
 	"114514": "Beast Senior warning"
 }
